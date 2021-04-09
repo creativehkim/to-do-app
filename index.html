@@ -15,10 +15,12 @@
 
 <body class="dark">
   <!-- Todo list title -->
+
   <div class="header">
     <h1 class="title">Todo</h1>
     <span class="change-theme"></span>
   </div>
+
   <!-- Todo List Input -->
   <div class="todo-input-container">
     <div class="static-check-button"></div>
@@ -36,37 +38,40 @@
       </div>
       <div class="todo-list-item">
         <div class="check-button"><img src="/images/icon-check.svg" alt="check icon"></div>
-        <p>Jog around the park 3x</p>
+        <p class="todo-text">Jog around the park 3x</p>
         <button class="delete-btn">
           <img src="/images/icon-cross.svg" alt="Delete Button">
         </button>
       </div>
       <div class="todo-list-item">
         <div class="check-button"><img src="/images/icon-check.svg" alt="check icon"></div>
-        <p>Jog around the park 3x</p>
+        <p class="todo-text">Jog around the park 3x</p>
         <button class="delete-btn">
           <img src="/images/icon-cross.svg" alt="Delete Button">
         </button>
       </div>
       <div class="todo-list-item completed">
         <div class="check-button"><img src="/images/icon-check.svg" alt="check icon"></div>
-        <p>Jog around the park 3x</p>
+        <p class="todo-text">Jog around the park 3x</p>
         <button class="delete-btn">
           <img src="/images/icon-cross.svg" alt="Delete Button">
         </button>
       </div>
       <div class="todo-list-state-container">
-        <p>items left</p>
-        <p>Clear Completed</p>
+        <p><span class="number">3</span> items left</p>
 
+        <div class="todo-list-categories">
+          <span class="todo-list-filter">All</span>
+          <span class="todo-list-filter">Active</span>
+          <span class="todo-list-filter">Completed</span>
+
+
+        </div>
+        <p class="clear-btn">Clear Completed</p>
       </div>
     </div>
   </div>
-  <div class="todo-list-categories">
-    <span class="todo-list-state">All</span>
-    <span class="todo-list-state">Active</span>
-    <span class="todo-list-state">Completed</span>
-  </div>
+
   <!-- Footer -->
   <div class="footer">
     <p>Drag and drop to reorder list</p>
