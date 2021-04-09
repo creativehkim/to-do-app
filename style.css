@@ -66,7 +66,6 @@ body.dark {
   background-color: var(--clr-dark-1);
 }
 
-input,
 button {
   border: none;
   cursor: pointer;
@@ -150,7 +149,7 @@ body.light .header span {
   align-items: center;
   justify-content: flex-start;
 
-  color: var(--primary-color-1);
+  caret-color: var(--clr-primary-blue);
 
   padding: 0px 20px;
   margin: 0 1.25em;
@@ -166,12 +165,13 @@ body.light .todo-input-container {
   background-color: white;
 }
 
-.todo-add-input {
+.todo-input {
   background: transparent;
 
   width: 100%;
   height: 90%;
 
+  border: none;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -181,6 +181,14 @@ body.light .todo-input-container {
   letter-spacing: 0.02rem;
 
   outline: none;
+}
+
+body.dark .todo-input {
+  color: white;
+}
+
+body.light .todo-input {
+  color: var(--clr-light-5);
 }
 
 /* Todo list */
@@ -220,8 +228,8 @@ body.light .todo-list-item {
   border-bottom: 1px solid var(--clr-light-2);
 }
 
-.check-button,
-.static-check-button {
+.check-btn,
+.static-check-btn {
   min-width: 30px;
   height: 28px;
 
@@ -238,33 +246,33 @@ body.light .todo-list-item {
   user-select: none;
 }
 
-.check-button:hover {
+.check-btn:hover {
   border: 1px solid hsl(280, 87%, 65%) !important;
 
   cursor: pointer;
 }
 
-.check-button img {
+.check-btn img {
   opacity: 0%;
 }
 
-.todo-list-item.completed .check-button img {
+.todo-list-item.completed .check-btn img {
   opacity: 100%;
 }
 
-.todo-list-item.completed .check-button {
+.todo-list-item.completed .check-btn {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
   border: none !important;
 }
 
-body.dark .check-button,
-body.dark .static-check-button {
+body.dark .check-btn,
+body.dark .static-check-btn {
   border: 1px solid var(--dark-color-7);
 }
 
-body.light .check-button,
-body.light .static-check-button {
+body.light .check-btn,
+body.light .static-check-btn {
   border: 1px solid var(--light-color-3);
 }
 
@@ -409,7 +417,7 @@ body.light .attribution {
     margin-bottom: 1em;
   }
 
-  .todo-add-input,
+  .todo-input,
   .todo-text {
     font-size: 1.1rem;
   }
