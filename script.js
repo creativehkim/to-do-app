@@ -1,21 +1,44 @@
 // Selectors
 
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 
-const todoInput = document.querySelector('.todo-input')
-const btnTheme = document.querySelector('.change-theme')
-const todoListContainer = document.querySelector('.todo-list-container')
-const allBtnCheck = document.querySelectorAll('.check-btn')
-const allBtnDelete = document.querySelectorAll('.delete-btn')
-
-
-const filterBtns = document.querySelectorAll('.todo-list-filter')
+const todoInput = document.querySelector('.todo-input');
+const btnTheme = document.querySelector('.change-theme');
+const todoListContainer = document.querySelector('.todo-list');
+const allBtnCheck = document.querySelectorAll('.check-btn');
+const allBtnDelete = document.querySelectorAll('.delete-btn');
 
 
+const filterBtns = document.querySelectorAll('.todo-list-filter');
+
+
+
+
+// Event Listeners
+
+// Create list with the value typed in the input field
+todoInput.addEventListener('keyup', (e) => {
+  e.preventDefault();
+
+  let inputValue = todoInput.value;
+  
+
+  if ( e.key === 'Enter' && inputValue.trim().length >= 1 ) {
+    createTodo(inputValue);
+
+  }
+})
+
+btnTheme.addEventListener('click', changeTheme);
+
+
+
+
+// functions
 
 
 // Function that changes the theme (dark vs. light)
-const changeTheme = () => {
+function changeTheme() {
   
   if (body.classList[0] === 'dark') {
     body.classList.remove('dark');
@@ -26,59 +49,60 @@ const changeTheme = () => {
   }
 }
 
-
-
-
 // Create the DOM of todo 
-const createTodo = (text) => {
-  console.log('hello')
-  const todoListItem = document.createElement('div')
-  todoListItem.className = 'todo-list-item active'
+function createTodo(text) {
+  console.log('hello');
+  const todoListItem = document.createElement('div');
+  todoListItem.className = 'todo-list-item active';
 
   const checkBtn = document.createElement('div')
-  checkBtn.className = 'check-btn'
-  // checkBtn.addEventListener('click', checkToCompleted)
+  checkBtn.className = 'check-btn';
+  checkBtn.addEventListener('click', checkToCompleted)
 
   const checkImg = document.createElement('img')
-  checkImg.src = './images/icon-check.svg'
-  checkImg.alt = 'Check Icon'
+  checkImg.src = './images/icon-check.svg';
+  checkImg.alt = 'Check Icon';
 
   checkBtn.appendChild(checkImg)
 
   const todoText = document.createElement('p')
-  todoText.className = 'todo-text'
-  todoText.textContent = text
+  todoText.className = 'todo-text';
+  todoText.innerHTML = text;
 
   const deleteBtn = document.createElement('button')
-  deleteBtn.className = 'delete-btn'
-  // deleteBtn.addEventListener('click', deleteTodo)
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.addEventListener('click', deleteTodo)
 
   const deleteImg = document.createElement('img')
-  deleteImg.src = './images/icon-cross.svg'
-  deleteImg.alt = 'Delete Button'
+  deleteImg.src = './images/icon-cross.svg';
+  deleteImg.alt = 'Delete Button';
 
-  deleteBtn.appendChild(deleteImg)
+  deleteBtn.appendChild(deleteImg);
 
-  todoListItem.append(checkBtn, todoText, deleteBtn)
+  todoListItem.append(checkBtn, todoText, deleteBtn);
+  todoListContainer.appendChild(todoListItem);
 
-  todoListContainer.appendChild(todoListItem)
+  // clear todo input value
+  todoInput.value= '';
+  console.log(todoListItem);
+}
+
+function deleteTodo(e) {
+  const item = e.target;
+  // delete todo
+  if(item.classList[0] === 'delete-btn') {
+    const todo = item.parentElement;
+    todo.remove();
+  }
 
 }
 
+function checkToCompleted(e) {
+  const item = e.target;
+  console.log(item);
+  if(item.classList[0] === 'check-btn') {
+    const todo = item.parentElement;
+    todo.classList.toggle('completed');
 
-// Event Listeners
-
-todoInput.addEventListener('keyup', (e) => {
-  e.preventDefault();
-
-  const inputValue = createTodo.childNodes[3];
-  const inputText = inputValue.value;
-
-  if ( e.key === 'Enter' && inputText.trim().length >= 1 ) {
-    createTodo(inputText);
-    inputText = '';
   }
-})
-
-//// Event that changes the theme
-btnTheme.addEventListener('click', changeTheme);
+}

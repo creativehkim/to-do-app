@@ -254,6 +254,7 @@ body.light .todo-list-item {
 
 .check-btn img {
   opacity: 0%;
+  pointer-events: none;
 }
 
 .todo-list-item.completed .check-btn img {
@@ -276,6 +277,10 @@ body.light .static-check-btn {
   border: 1px solid var(--light-color-3);
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .todo-text {
   margin: 20px 30px 20px 0;
 }
@@ -284,15 +289,25 @@ body.light .static-check-btn {
   position: absolute;
   background-color: transparent;
 
+  height: 12px;
   right: 20px;
-  top: 20%;
-  bottom: 21.07%;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   padding: 0;
 }
 
+body.dark .delete-btn:hover {
+  filter: invert(1);
+}
+
+body.light .delete-btn:hover {
+  filter: invert(1);
+}
+
 .delete-btn img {
-  width: 12px;
+  width: 14px;
+  pointer-events: none;
 }
 
 .todo-list-state-container {
