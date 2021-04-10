@@ -112,7 +112,7 @@ body.light .header::before {
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 2rem;
   letter-spacing: 10px;
   text-transform: uppercase;
   color: white;
@@ -228,6 +228,18 @@ body.light .todo-list-item {
   border-bottom: 1px solid var(--clr-light-2);
 }
 
+.todo-list-item.completed {
+  text-decoration: line-through;
+}
+
+body.dark .todo-list-item.completed {
+  color: var(--clr-dark-6);
+}
+
+body.light .todo-list-item.completed {
+  color: var(--clr-light-3);
+}
+
 .check-btn,
 .static-check-btn {
   min-width: 30px;
@@ -275,18 +287,6 @@ body.dark .static-check-btn {
 body.light .check-btn,
 body.light .static-check-btn {
   border: 1px solid var(--light-color-3);
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
-body.dark .completed {
-  color: var(--clr-dark-6);
-}
-
-body.light .completed {
-  color: var(--clr-light-3);
 }
 
 .todo-text {
@@ -422,9 +422,13 @@ body.light .attribution {
     margin: auto;
   }
 
+  .header {
+    padding-top: 3em;
+  }
+
   .header::before {
     width: 100vw;
-    height: 200px;
+    height: 250px;
     background-size: cover;
   }
 
@@ -436,8 +440,13 @@ body.light .attribution {
     background-image: url('/images/bg-desktop-light.jpg');
   }
 
+  .title {
+    font-size: 2.25rem;
+    margin: 2em 0;
+  }
+
   .todo-input-container {
-    margin-bottom: 1em;
+    margin: 2em auto 1em;
   }
 
   .todo-input,
