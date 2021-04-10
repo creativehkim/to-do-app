@@ -9,7 +9,7 @@ const allBtnCheck = document.querySelectorAll('.check-btn');
 const allBtnDelete = document.querySelectorAll('.delete-btn');
 
 
-const filterBtns = document.querySelectorAll('.todo-list-filter');
+const filterBtns = document.querySelectorAll('.todo-filter');
 
 
 
@@ -30,7 +30,9 @@ todoInput.addEventListener('keyup', (e) => {
 })
 
 btnTheme.addEventListener('click', changeTheme);
-
+filterBtns.forEach((filter) => {
+  filter.addEventListener('click', filterTodo);
+})
 
 
 
@@ -51,7 +53,7 @@ function changeTheme() {
 
 // Create the DOM of todo 
 function createTodo(text) {
-  console.log('hello');
+
   const todoListItem = document.createElement('div');
   todoListItem.className = 'todo-list-item active';
 
@@ -84,8 +86,9 @@ function createTodo(text) {
 
   // clear todo input value
   todoInput.value= '';
-  console.log(todoListItem);
 }
+
+// delete todo list items
 
 function deleteTodo(e) {
   const item = e.target;
@@ -97,12 +100,19 @@ function deleteTodo(e) {
 
 }
 
+// check completed task by clicking the checkmark
+
 function checkToCompleted(e) {
   const item = e.target;
-  console.log(item);
+
   if(item.classList[0] === 'check-btn') {
     const todo = item.parentElement;
     todo.classList.toggle('completed');
-
   }
+}
+
+// filtering todo items
+function filterTodo(e) {
+  const todos = todolist.childNodes;
+  console.log(todos);
 }

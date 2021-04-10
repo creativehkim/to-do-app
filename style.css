@@ -54,7 +54,7 @@ body,
 .todo-input-container,
 .todo-list-container,
 .todo-list-state-container,
-.todo-list-categories {
+.todo-filters {
   transition: all 0.5s ease;
 }
 
@@ -281,6 +281,14 @@ body.light .static-check-btn {
   text-decoration: line-through;
 }
 
+body.dark .completed {
+  color: var(--clr-dark-6);
+}
+
+body.light .completed {
+  color: var(--clr-light-3);
+}
+
 .todo-text {
   margin: 20px 30px 20px 0;
 }
@@ -310,7 +318,7 @@ body.light .delete-btn:hover {
   pointer-events: none;
 }
 
-.todo-list-state-container {
+.todo-info {
   font-size: 0.9rem;
   height: 55px;
   display: flex;
@@ -321,7 +329,7 @@ body.light .delete-btn:hover {
   font-weight: 400;
 }
 
-.todo-list-categories {
+.todo-filters {
   position: absolute;
   bottom: -75px;
   left: 50%;
@@ -338,30 +346,30 @@ body.light .delete-btn:hover {
   border-radius: 5px;
 }
 
-body.dark .todo-list-categories,
-body.dark .todo-list-state-container {
+body.dark .todo-filters,
+body.dark .todo-info {
   background-color: var(--clr-dark-2);
   color: var(--clr-dark-6);
 }
 
-body.light .todo-list-categories,
-body.light .todo-list-state-container {
+body.light .todo-filters,
+body.light .todo-info {
   background-color: white;
   color: var(--clr-light-4);
   box-shadow: 0px 35px 40px -15px rgba(8, 8, 8, 0.1);
 }
 
-.todo-list-filter {
+.todo-filter {
   cursor: pointer;
 }
 
-.todo-list-filter:hover,
-.todo-list-filter:focus,
+.todo-filter:hover,
+.todo-filter:focus,
 .clear-btn:hover {
   color: var(--clr-primary-blue);
 }
 
-.todo-list-filter + .todo-list-filter {
+.todo-filter + .todo-filter {
   margin-left: 1.5em;
 }
 
@@ -408,8 +416,8 @@ body.light .attribution {
   .header,
   .todo-input-container,
   .todo-list-container,
-  .todo-list-state-container,
-  .todo-list-categories {
+  .todo-info,
+  .todo-filters {
     max-width: 700px;
     margin: auto;
   }
@@ -437,11 +445,11 @@ body.light .attribution {
     font-size: 1.1rem;
   }
 
-  .todo-list-state-container {
+  .todo-info {
     height: 55px;
   }
 
-  .todo-list-categories {
+  .todo-filters {
     bottom: 0;
     width: 40%;
   }
