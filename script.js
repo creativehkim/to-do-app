@@ -107,6 +107,7 @@ function deleteTodo(e) {
   // delete todo
   if(item.classList[0] === 'delete-btn') {
     const todo = item.parentElement;
+    removeLS(todo);
     todo.remove();
   }
 
@@ -146,7 +147,7 @@ function clearCompleted() {
 // filter todo items - completed, all, active
 function filterTodo(e) {
   const todos = todoListContainer.querySelectorAll('.todo-list-item');
-  console.log(e.target.innerText);
+
   todos.forEach(todo => {
     switch(e.target.innerText) {
       case "All": 
@@ -192,7 +193,6 @@ function getTodos(){
     todos = JSON.parse(localStorage.getItem('todos'));
   }
 
-  console.log(todos);
   todos.forEach(todo => {
     const todoListItem = document.createElement('div');
     todoListItem.className = 'todo-list-item active';
@@ -224,4 +224,17 @@ function getTodos(){
     todoListItem.append(checkBtn, todoText, deleteBtn);
     todoListContainer.appendChild(todoListItem);
   })
+}
+
+// remove todos from LS
+function removeLS(todo) {
+  let todos;
+  if(localStorage.getItem('todos') === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem('todos'));
+  }
+  const todoIndex = todo.children[1].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
