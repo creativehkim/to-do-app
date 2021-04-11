@@ -9,11 +9,11 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
+
   - [Built with](#built-with)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/creativehkim/to-do-app)
-- Live Site URL: [Add live site URL here](https://to-do-app-seven.vercel.app/)
+- Solution URL: [https://www.frontendmentor.io/solutions/todo-app-with-html-css-and-vanilla-javascript-YzsTtAV8K](https://www.frontendmentor.io/solutions/todo-app-with-html-css-and-vanilla-javascript-YzsTtAV8K)
+- Live Site URL: [https://to-do-app-creativehkim.vercel.app/](https://to-do-app-creativehkim.vercel.app/)
 
 ## My process
 
