@@ -53,9 +53,9 @@ body,
 .header::before,
 .todo-input-container,
 .todo-list-container,
-.todo-list-state-container,
+.todo-info,
 .todo-filters {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 body.light {
@@ -218,6 +218,12 @@ body.light .todo-list-container {
   display: flex;
   align-items: center;
   padding: 1em 20px;
+
+  cursor: pointer;
+}
+
+.todo-list-item.dragging {
+  opacity: 0.7;
 }
 
 body.dark .todo-list-item {
@@ -253,7 +259,7 @@ body.light .todo-list-item.completed {
 
   margin-right: 20px;
 
-  transition: border 0.2s ease;
+  transition: border 0.3s ease;
 
   user-select: none;
 }
@@ -281,12 +287,12 @@ body.light .todo-list-item.completed {
 
 body.dark .check-btn,
 body.dark .static-check-btn {
-  border: 1px solid var(--dark-color-7);
+  border: 1px solid var(--clr-dark-7);
 }
 
 body.light .check-btn,
 body.light .static-check-btn {
-  border: 1px solid var(--light-color-3);
+  border: 1px solid var(--clr-light-3);
 }
 
 .todo-text {
@@ -461,6 +467,11 @@ body.light .attribution {
   .todo-filters {
     bottom: 0;
     width: 40%;
+  }
+
+  body.dark .todo-filters,
+  body.light .todo-filters {
+    background-color: transparent;
   }
 
   .footer {

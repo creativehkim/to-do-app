@@ -10,7 +10,7 @@ const allBtnCheck = document.querySelectorAll('.check-btn');
 const allBtnDelete = document.querySelectorAll('.delete-btn');
 const filterBtns = document.querySelectorAll('.todo-filter');
 
-
+const todoListItems = document.querySelectorAll('todo-list-item')
 
 // Event Listeners
 
@@ -41,6 +41,19 @@ clearBtn.addEventListener('click', clearCompleted);
 
 
 
+// // drag and drop
+// todoListItems.forEach(todoListItem => {
+//   todoListItem.addEventListener('dragstart', () => {
+//     todoListItem.classList.add('dragging');
+//   })
+  
+//   todoListItem.addEventListener('dragend', () =>{
+//     todoListItem.classList.remove('dragging');
+//   })
+
+// })
+
+
 
 
 
@@ -63,6 +76,7 @@ function createTodo(text) {
 
   const todoListItem = document.createElement('div');
   todoListItem.className = 'todo-list-item active';
+  todoListItem.draggable = true;
 
   const checkBtn = document.createElement('div')
   checkBtn.className = 'check-btn';
@@ -110,7 +124,7 @@ function deleteTodo(e) {
     removeLS(todo);
     todo.remove();
   }
-
+  countAllTodos();
 }
 
 // check completed task by clicking the checkmark
@@ -131,7 +145,6 @@ function countAllTodos() {
   const allItemsCount = document.querySelector('.all-items-count');
 
   allItemsCount.innerText = allActive.length;
-
 }
 
 // Remove all completed todos
@@ -141,6 +154,7 @@ function clearCompleted() {
   for (todo of allCompleted) {
     todo.remove()
   }
+  countAllTodos();
   }
 
 
@@ -224,6 +238,7 @@ function getTodos(){
     todoListItem.append(checkBtn, todoText, deleteBtn);
     todoListContainer.appendChild(todoListItem);
   })
+  countAllTodos();
 }
 
 // remove todos from LS
@@ -237,4 +252,8 @@ function removeLS(todo) {
   const todoIndex = todo.children[1].innerText;
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem('todos', JSON.stringify(todos));
+
+  
 }
+
+
